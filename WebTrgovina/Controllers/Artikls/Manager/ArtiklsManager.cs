@@ -42,6 +42,10 @@ namespace WebTrgovina.Controllers.Artikls.Manager
                 return artiklVM;
             }
         }
+
+
+
+
         public static ArtiklDetailsVM GetArtiklDetailsById(int id)
         {
             using (var _context = new ApplicationDbContext())
