@@ -1,0 +1,100 @@
+﻿@model WebTrgovina.Models.ViewModels.ArtiklViewModels.Admin.ArtiklDetailsVM
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Artikl</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ArtiklVM.Naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArtiklVM.Naziv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArtiklVM.Opis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArtiklVM.Opis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArtiklVM.Kolicina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArtiklVM.Kolicina)
+        </dd>
+
+       
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArtiklVM.DatumUnosa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArtiklVM.DatumUnosa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArtiklVM.Cjena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArtiklVM.Cjena)
+        </dd>
+
+        @Html.HiddenFor(model=>model.ArtiklVM.Id)
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ArtiklVM.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ReviewsVM[0].User.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReviewsVM[0].Ocjena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReviewsVM[0].Opis)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.ReviewsVM)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ocjena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opis)
+            </td>
+            
+            <td>
+                @Html.ActionLink("Uredi", "Edit","Reviews", new { id = item.Id},null) |
+                @Html.ActionLink("Detalji", "Details", "Reviews", new { id = item.Id }, null) |
+                @Html.ActionLink("Obriši", "Obriši", "Reviews", new { id = item.Id }, null) 
+            </td>
+        </tr>
+    }
+
+</table>
